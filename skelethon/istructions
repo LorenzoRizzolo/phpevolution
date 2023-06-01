@@ -1,0 +1,3 @@
+Use "composer update" for require library for email and env file.
+
+It works if you use "php -S localhost:8080" in public directory or wth nginx web server. If you use apache you can't use .env file.
