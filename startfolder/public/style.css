@@ -77,4 +77,7 @@ code{
         display: block;
         margin-left: 5px;
     }
+    header{
+        padding-top: 5vh;
+    }
 }

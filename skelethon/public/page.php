@@ -1,6 +1,5 @@
 <?php
 
-require_once $src.'common_file.php';
 
 
 ?>

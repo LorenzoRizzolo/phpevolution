@@ -2,9 +2,10 @@
     --bg-color: lightblue;
     --footer-color: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.3));
     --footer-tx-color: white; 
-    --hover-footer-color: rgb(233, 95, 95);
+    --hover-footer-color: rgba(0, 0, 255, 0.512);
     --number-footer-values: 4;
     --card-pc-width: 100%;
+    --bgcolor-input: rgba(0, 0, 255, 0);
 }
 footer{
     bottom: 0px;
@@ -68,7 +69,7 @@ a{
     width: 100%;
     border: 0;
     border-bottom: 2px solid blue;
-    background-color: rgb(43,43,43);
+    background-color: var(--bgcolor-input);
     outline-width: 0;
   }
   .input-container .placeholder {
@@ -85,7 +86,6 @@ a{
   }
 
   :root{
-    /* --check-color:rgb(18, 209, 18); green */
     --check-color:rgb(0, 160, 253); 
   }
   

@@ -1,7 +1,5 @@
 <?php
 
-require_once $src.'common_file.php';
-
 switch($_GET['opt']){
     case 'home':
         require_once $header.'home.php';

@@ -28,7 +28,7 @@ $header = "../src/header/";
 // src folder 
 $src = "../src/";
 
-
+require_once $src.'common_file.php';
 require_once 'page.php';
 ?>
 

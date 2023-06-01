@@ -19,11 +19,11 @@
 <pre>
 <code>
 function tryconnection(){
-    $dati = $GLOBALS['dati_env'];
+    $data = $GLOBALS['dati_env'];
     try{
-        $conn = new PDO("mysql:host=$dati->dbhost;dbname=$dati->dbname", $dati->dbuser, $dati->dbpas);
+        $conn = new PDO("mysql:host=$data->dbhost;dbname=$data->dbname", $data->dbuser, $data->dbpas);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("SELECT COUNT(*) FROM `table_name`");
+        $stmt = $conn->prepare("query");
         $stmt->execute();
         $count = $stmt->fetchColumn();
         return "count: ".$count;
@@ -36,11 +36,11 @@ function tryconnection(){
 </pre>
 <code class='code2'>
 function tryconnection(){
-    $dati = $GLOBALS['dati_env'];
+    $data = $GLOBALS['dati_env'];
     try{
-        $conn = new PDO("mysql:host=$dati->dbhost;dbname=$dati->dbname", $dati->dbuser, $dati->dbpas);
+        $conn = new PDO("mysql:host=$data->dbhost;dbname=$data->dbname", $data->dbuser, $data->dbpas);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("SELECT COUNT(*) FROM `table_name`");
+        $stmt = $conn->prepare("query");
         $stmt->execute();
         $count = $stmt->fetchColumn();
         return "count: ".$count;
@@ -55,17 +55,17 @@ function tryconnection(){
 <pre>
 <code>
 function getdatafromdb(){
-    $dati = $GLOBALS['dati_env'];
+    $data = $GLOBALS['dati_env'];
     try{
-        $conn = new PDO("mysql:host=$dati->dbhost;dbname=$dati->dbname", $dati->dbuser, $dati->dbpas);
+        $conn = new PDO("mysql:host=$data->dbhost;dbname=$data->dbname", $data->dbuser, $data->dbpas);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("SELECT * FROM `table`");
+        $stmt = $conn->prepare("query select");
         $stmt->execute([]);
-        $dati = array();
+        $data = array();
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            array_push($dati, $rpw['name_column']);
+            array_push($data, $row['name_column']);
         }
-        return $dati;
+        return $data;
     }catch(PDOException $e){
         echo $e->getMEssage();
         return false;
@@ -75,17 +75,17 @@ function getdatafromdb(){
 </pre>
 <code class="code2">
 function getdatafromdb(){
-    $dati = $GLOBALS['dati_env'];
+    $data = $GLOBALS['dati_env'];
     try{
-        $conn = new PDO("mysql:host=$dati->dbhost;dbname=$dati->dbname", $dati->dbuser, $dati->dbpas);
+        $conn = new PDO("mysql:host=$data->dbhost;dbname=$data->dbname", $data->dbuser, $data->dbpas);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("SELECT * FROM `table`");
+        $stmt = $conn->prepare("query SELECT");
         $stmt->execute([]);
-        $dati = array();
+        $data = array();
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            array_push($dati, $rpw['name_column']);
+            array_push($data, $row['name_column']);
         }
-        return $dati;
+        return $data;
     }catch(PDOException $e){
         echo $e->getMEssage();
         return false;
@@ -99,32 +99,32 @@ function getdatafromdb(){
 <pre>
 <code>
 function addtodb(){
-    $dati = $GLOBALS['dati_env'];
+    $data = $GLOBALS['dati_env'];
     try{
-        $conn = new PDO("mysql:host=$dati->dbhost;dbname=$dati->dbname", $dati->dbuser, $dati->dbpas);
+        $conn = new PDO("mysql:host=$data->dbhost;dbname=$data->dbname", $data->dbuser, $data->dbpas);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("INSERT INTO `table` VALUES ()");
+        $stmt = $conn->prepare("query");
         $stmt->execute();
-        return [true, $conn->lastInsertId()];
+        return true;
     }catch(Exception $e){
         echo $e->getMEssage();
-        return [false];
+        return false;
     }
 }
 </code>
 </pre>
 <code class="code2">
 function addtodb(){
-    $dati = $GLOBALS['dati_env'];
+    $data = $GLOBALS['dati_env'];
     try{
-        $conn = new PDO("mysql:host=$dati->dbhost;dbname=$dati->dbname", $dati->dbuser, $dati->dbpas);
+        $conn = new PDO("mysql:host=$data->dbhost;dbname=$data->dbname", $data->dbuser, $data->dbpas);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("INSERT INTO `table` VALUES ()");
+        $stmt = $conn->prepare("query");
         $stmt->execute();
-        return [true, $conn->lastInsertId()];
+        return true;
     }catch(Exception $e){
         echo $e->getMEssage();
-        return [false];
+        return false;
     }
 }
 </code>
