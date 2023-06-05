@@ -14,7 +14,9 @@ if (optParam) {
     }
 }else{
     const links = document.querySelectorAll('.opzioni .footer-link');
-    links[0].classList.add('footer-select');
+    if(links.length!=0){
+      links[0].classList.add('footer-select');
+    }
 }
 
 // input text
