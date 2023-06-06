@@ -3,7 +3,10 @@
     <p>You can see all js components on <a href="https://github.com/lorenzorizzolo/js-elements" target='_blank'>GitHub</a></p>
     <div class='component'>
         <h2>input</h2>
-        4
+        <div class="input-container">
+            <input type="text" >
+            <div class="placeholder">Write text</div>
+        </div>
     </div>
 
     <div class='component'>

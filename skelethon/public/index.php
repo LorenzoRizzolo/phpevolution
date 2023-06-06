@@ -11,10 +11,10 @@
     <!-- links -->
     <link rel="apple-touch-icon" href="php.ico">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fram.css">
+    <link rel="stylesheet" href="framework.css">
     <link rel="shortcut icon" href="php.ico" type="image/x-icon">
 
-    <title>FramPHP</title>
+    <title>PHPevolution</title>
 </head>
 <body>
 
@@ -33,11 +33,11 @@ require_once 'page.php';
 ?>
 
 <div id="loading">
-  <h1>Loading...</h1>
+  <div class='loader'></div>
 </div>
 
 <script src="jquery.js"></script>
-<script src="script.js"></script>
+<script src="framework.js"></script>
 
 </body>
 </html>

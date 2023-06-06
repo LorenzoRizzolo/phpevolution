@@ -1,10 +1,16 @@
 :root{
     --bg-color: lightblue;
+    /* footer */
     --footer-color: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.3));
     --footer-tx-color: white; 
     --hover-footer-color: rgb(233, 95, 95);
     --number-footer-values: 4;
+    /* vards */
     --card-pc-width: 100%;
+    /* input */
+    --input-bg-color: rgba(0,0,0,0);
+    --input-up-color: white;
+    --input-up-size: 90%;
 }
 footer{
     bottom: 0px;
@@ -68,7 +74,7 @@ a{
     width: 100%;
     border: 0;
     border-bottom: 2px solid blue;
-    background-color: rgb(43,43,43);
+    background-color: var(--input-bg-color);
     outline-width: 0;
   }
   .input-container .placeholder {
@@ -82,6 +88,10 @@ a{
   .input-container.input-active .placeholder {
     top: -10px;
     font-size: 10px;
+  }
+  .place-up{
+    font-size: var(--input-up-size);
+    color: var(--input-up-color) !important;
   }
 
   :root{
@@ -208,14 +218,28 @@ a{
 
 #loading {
     /* display: none; */
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     top:0;
     color: white;
     text-align: center;
     width: 100vw;
     height: 100vh;
-    padding-top: 30vh;
+    padding-top: 40vh;
+}
+.loader {
+  border: 4px solid #f3f3f3;  /*Colore del bordo */
+ border-top: 4px solid #3498db;  /*Colore del bordo superiore */
+ border-radius: 100%; /* Forma rotonda */
+ width: 80px; /* Larghezza dell'elemento */
+ height: 80px; /* Altezza dell'elemento */
+ animation: spin 0.5s linear infinite; /* Animazione di rotazione */
+ margin: 0 auto; /* Allinea al centro orizzontalmente */
+}
+
+@keyframes spin {
+ 0% { transform: rotate(0deg); } /* Angolo di rotazione iniziale */
+ 100% { transform: rotate(360deg); } /* Angolo di rotazione finale */
 }
 
 
