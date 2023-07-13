@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <!-- links -->
-    <link rel="apple-touch-icon" href="php.ico">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="framework.css">
-    <link rel="shortcut icon" href="php.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/php.ico">
+    <link rel="shortcut icon" href="img/php.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/framework.css">
 
     <title>PHPevolution</title>
 </head>
@@ -21,14 +21,12 @@
 <?php
 // pages folder
 $pages = "../src/pages/";
-// footer folder
-$footer = "../src/footer/";
-// footer header
-$header = "../src/header/";
+$com = "../src/components/";
+$back = "../src/backend/";
 // src folder 
 $src = "../src/";
 
-require_once $src.'common_file.php';
+require_once $back.'common_file.php';
 require_once 'page.php';
 ?>
 
@@ -36,8 +34,9 @@ require_once 'page.php';
   <div class='loader'></div>
 </div>
 
-<script src="jquery.js"></script>
-<script src="framework.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/script.js"></script>
+<script src="js/framework.js"></script>
 
 </body>
 </html>

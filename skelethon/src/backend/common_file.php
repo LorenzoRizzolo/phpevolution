@@ -1,23 +1,35 @@
 <?php
 
+require_once "../vendor/autoload.php";
+require_once 'vars.php';
+require 'functions.php';
+require 'dbfunctions.php';
+
 // session timeout
-$time = 21600;
-// Sets session timeout
+$time = 3600;
 ini_set('session.gc_maxlifetime', $time);
 ini_set('session.use_only_cookies', true);
 session_set_cookie_params($time);
 session_start();
+if(isset($_GET['logout'])){
+    session_unset();
+    // session_destroy();
+    // session_abort();
+    // session_start();
+    $_SESSION['cook']=true;
+}
 
 
-require_once '../vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__."/../");
+// require_once '../vendor/autoload.php'; 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__."/../../"); //env
 $dotenv->load();
 class dati_env{
     public $dbhost;
     public $dbname;
     public $dbuser;
-    public $dbpas;
+    public $dbpassword;
     public $key;
+    public $iv;
 }
 class dati_email{
     public $email;
@@ -29,8 +41,9 @@ $dati_env = new dati_env();
 $dati_env->dbhost = $_ENV['DBHOST'];
 $dati_env->dbname = $_ENV['DBNAME'];
 $dati_env->dbuser = $_ENV['DBUSER'];
-$dati_env->dbpas = $_ENV['DBPAS'];
+$dati_env->dbpassword = $_ENV['DBPAS'];
 $dati_env->key = $_ENV['KEY'];
+$dati_env->iv = $_ENV['IV'];
 $dati_email = new dati_email();
 $dati_email->email = $_ENV['EMAIL'];
 $dati_email->emailpas = $_ENV['EMAILPAS'];
@@ -40,7 +53,7 @@ $dati_email->port = $_ENV['PORT'];
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-function send_email($emailto, $object, $message){
+function send_email($email, $object, $message){
     $dati = $GLOBALS['dati_email'];
     try{
         $mail = new PHPMailer(true);
@@ -52,7 +65,7 @@ function send_email($emailto, $object, $message){
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $dati->port;
         $mail->setFrom($dati->email);
-        $mail->addAddress($emailto);
+        $mail->addAddress($email);
         $mail->isHTML(true);
         $mail->Subject = $object;
         $mail->Body = $message;
@@ -63,17 +76,6 @@ function send_email($emailto, $object, $message){
     }
 }
 
-function decrypt($var){
-    $dati = $GLOBALS['dati_env'];
-    return openssl_decrypt($var,"AES-256-CBC", $dati->key);
-}
-function encrypt($var){
-    $dati = $GLOBALS['dati_env'];
-    return openssl_encrypt($var,"AES-256-CBC", $dati->key);
-}
-
 // here there are the db functions
-require 'functions.php';
-require 'dbfunctions.php';
 
 ?>

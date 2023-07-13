@@ -26,4 +26,13 @@ function contains($var, $filter){
         return false;
     }
 }
+
+function decrypt($var){
+    $dati = $GLOBALS['dati_env'];
+    return openssl_decrypt($var,"AES-256-CBC", $dati->key, 0, $dati->iv);
+}
+function encrypt($var){
+    $dati = $GLOBALS['dati_env'];
+    return openssl_encrypt($var,"AES-256-CBC", $dati->key, 0, $dati->iv);
+}
 ?>
