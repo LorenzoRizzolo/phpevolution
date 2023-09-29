@@ -5,7 +5,7 @@ It's very simple to use, use only require to make the page more speed.
 
 ## Start
 steps:
-1. git clone https://github.com/phpevolution/phpevolution
+1. git clone https://github.com/lorenzorizzolo/phpevolution
 2. goto startfolder/
 3. rename .env.example to .env, fill the variables with your data. 
 4. you need to [install composer](https://getcomposer.org/download/), then use 'composer update'
