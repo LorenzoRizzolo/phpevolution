@@ -6,10 +6,10 @@ It's very simple to use, use only require to make the page more speed.
 ## Start
 steps:
 1. git clone https://github.com/lorenzorizzolo/phpevolution
-2. goto startfolder/
+2. open skelethon/
 3. rename .env.example to .env, fill the variables with your data. 
-4. you need to install with apt like *sudo apt install composer*, then use *sudo composer update*
-5. start server: *sh start.sh*
+4. you need to install with apt like `sudo apt install composer`, then use `sudo composer update`
+5. start server: `sh start.sh`
 6. goto "localhost:8000" on your browser
 
 ## Features
@@ -60,5 +60,5 @@ You must se BOT_TOKEN with you personal telegram and set webhook to your site li
 >Your site must be HTTPS not HTTP
 
 ```
-https://api.telegram.org/bot{bot_token}/setWebhook?url={tuo sito}/telegram/
+https://api.telegram.org/bot{bot_token}/setWebhook?url={your site}/telegram/
 ```

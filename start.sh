@@ -1,7 +1,7 @@
 #!/bin/bash
 
 default_ip="localhost"
-default_port="8080"
+default_port="8081"
 
 if [ $# -eq 0 ]; then
     ip=$default_ip
