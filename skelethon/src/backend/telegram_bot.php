@@ -1,5 +1,7 @@
 <?php
+    require_once "../../vendor/autoload.php";
     require_once "upd.php";
+    require_once "../../src/backend/common_file.php";
 
     define("TOKEN", $dati_env->token);
 
@@ -36,9 +38,19 @@
 
     }
     
-    function send_telegram($id, $text){
+    if($upd){
         $dati = $GLOBALS['dati_env'];
         $bot = new Bot($dati->token);
-        $bot->bot("sendMessage", ["chat_id" => $id, "text" => $text]);
+        $ar = explode(" ", $text);
+        $message = $ar[0];
+        $arg = $ar[1];
+        switch($message){
+            case '/chatid':
+                $bot->bot("sendMessage", ["chat_id" => $chat_id, "text" => "Il tuo chatid: ".$chat_id]);
+                break;
+            default:
+                $bot->bot("sendMessage", ["chat_id" => $chat_id, "text" => "Comando non trovato"]);
+                break;
+        }
     }
 ?>

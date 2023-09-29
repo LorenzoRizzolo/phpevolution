@@ -8,6 +8,7 @@ $back = "../src/backend/";
 $src = "../src/";
 
 require_once $back.'common_file.php';
+require_once $back.'telegram_bot.php';
 ?>
 <html lang="it">
 <head>
