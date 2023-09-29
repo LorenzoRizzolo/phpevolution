@@ -30,6 +30,7 @@ class dati_env{
     public $dbpassword;
     public $key;
     public $iv;
+    public $token;
 }
 class dati_email{
     public $email;
@@ -44,6 +45,7 @@ $dati_env->dbuser = $_ENV['DBUSER'];
 $dati_env->dbpassword = $_ENV['DBPAS'];
 $dati_env->key = $_ENV['KEY'];
 $dati_env->iv = $_ENV['IV'];
+$dati_env->token = $_ENV['BOT_TOKEN'];
 $dati_email = new dati_email();
 $dati_email->email = $_ENV['EMAIL'];
 $dati_email->emailpas = $_ENV['EMAILPAS'];

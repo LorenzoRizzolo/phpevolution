@@ -20,22 +20,35 @@ if (optParam) {
 }
 
 // input text
-var inputs = document.querySelectorAll(".input-container input");
-var placeholders = document.querySelectorAll(".input-container .placeholder");
-for (var i = 0; i < inputs.length; i++) {
-  inputs[i].addEventListener("focus", function() {
-    var placeholder = this.nextElementSibling;
-    placeholder.style.top = "-20px";
-    placeholder.classList.add("place-up");
-  });
-  inputs[i].addEventListener("blur", function() {
-    var placeholder = this.nextElementSibling;
-    if (this.value === "") {
-      placeholder.style.top = "8px";
-      placeholder.classList.remove("place-up");
+$(document).ready(function() {
+  var inputs = $(".input-container input");
+  var placeholders = $(".input-container .placeholder");
+
+  // Posiziona i placeholder correttamente all'avvio della pagina
+  inputs.each(function() {
+    var placeholder = $(this).next();
+    if ($(this).val() !== "") {
+      placeholder.css("top", "-20px");
+      placeholder.addClass("place-up");
     }
   });
-}
+
+  // Aggiorna i placeholder quando il campo di input ottiene il focus
+  inputs.on("focus", function() {
+    var placeholder = $(this).next();
+    placeholder.css("top", "-20px");
+    placeholder.addClass("place-up");
+  });
+
+  // Ripristina i placeholder quando il campo di input perde il focus
+  inputs.on("blur", function() {
+    var placeholder = $(this).next();
+    if ($(this).val() === "") {
+      placeholder.css("top", "8px");
+      placeholder.removeClass("place-up");
+    }
+  });
+});
 
 
 // searchbar

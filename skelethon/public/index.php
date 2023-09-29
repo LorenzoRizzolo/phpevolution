@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+// pages folder
+$pages = "../src/pages/";
+$com = "../src/components/";
+$back = "../src/backend/";
+// src folder 
+$src = "../src/";
+
+require_once $back.'common_file.php';
+?>
 <html lang="it">
 <head>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,14 +29,6 @@
 <body>
 
 <?php
-// pages folder
-$pages = "../src/pages/";
-$com = "../src/components/";
-$back = "../src/backend/";
-// src folder 
-$src = "../src/";
-
-require_once $back.'common_file.php';
 require_once 'page.php';
 ?>
 
