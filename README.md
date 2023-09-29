@@ -8,8 +8,8 @@ steps:
 1. git clone https://github.com/lorenzorizzolo/phpevolution
 2. goto startfolder/
 3. rename .env.example to .env, fill the variables with your data. 
-4. you need to [install composer](https://getcomposer.org/download/), then use 'composer update'
-5. sh start.sh
+4. you need to install with apt like *sudo apt install composer*, then use *sudo composer update*
+5. start server: *sh start.sh*
 6. goto "localhost:8000" on your browser
 
 ## Features
