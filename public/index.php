@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <?php
 // pages folder
-$pages = "../src/pages/";
-$com = "../src/components/";
 $back = "../src/backend/";
 // src folder 
 $src = "../src/";
