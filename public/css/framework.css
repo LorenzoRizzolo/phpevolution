@@ -42,7 +42,6 @@ footer{
 a{
   border-radius: 10px;
   text-decoration: none;
-  margin: 5px;
 }
 .all{
   background: var(--footer-color);
