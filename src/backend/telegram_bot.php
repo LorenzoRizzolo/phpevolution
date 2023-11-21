@@ -5,6 +5,7 @@
 
 
     class Bot{
+        private $token;
 
         public function __construct(string $token){
             $this->token = $token;

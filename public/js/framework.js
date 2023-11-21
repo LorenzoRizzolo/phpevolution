@@ -19,34 +19,53 @@ if (optParam) {
     }
 }
 
+var selects = $("select");
+selects.each( function(){
+  if($(this).val() !== ""){
+    $(this).addClass("border-blue");
+  }
+});
+$('select').on('change', function() {
+  console.log($(this).val())
+  if($(this).val() !== ""){
+    $(this).addClass("border-blue");
+  }else{
+    $(this).removeClass("border-blue");
+  }
+});
+
+
 // input text
-$(document).ready(function() {
-  var inputs = $(".input-container input");
-  var placeholders = $(".input-container .placeholder");
-
-  // Posiziona i placeholder correttamente all'avvio della pagina
-  inputs.each(function() {
+var inputs = $(".input-container input");
+var placeholders = $(".input-container .placeholder");
+inputs.each(function() {
     var placeholder = $(this).next();
+    
     if ($(this).val() !== "") {
-      placeholder.css("top", "-20px");
+      placeholder.css("top", "-25px");
       placeholder.addClass("place-up");
+      var inputContainer = this.closest(".input-container");
+      inputContainer.classList.add("border-blue");
     }
-  });
-
-  // Aggiorna i placeholder quando il campo di input ottiene il focus
-  inputs.on("focus", function() {
-    var placeholder = $(this).next();
-    placeholder.css("top", "-20px");
-    placeholder.addClass("place-up");
-  });
-
-  // Ripristina i placeholder quando il campo di input perde il focus
-  inputs.on("blur", function() {
-    var placeholder = $(this).next();
-    if ($(this).val() === "") {
-      placeholder.css("top", "8px");
-      placeholder.removeClass("place-up");
-    }
+    inputs.on("focus", function() {
+      var placeholder = $(this).next();
+      placeholder.css("top", "-25px");
+      placeholder.addClass("place-up");
+      var inputContainer = this.closest(".input-container");
+      inputContainer.classList.add("border-blue");
+    });
+    placeholders.on("click", function() {
+      var input = $(this).prev("input"); // Trova l'input associato al placeholder
+      input.focus(); // Imposta il focus sull'input
+    });
+    inputs.on("blur", function() {
+      var placeholder = $(this).next();
+      if ($(this).val() === "") {
+        placeholder.css("top", "10px");
+        placeholder.removeClass("place-up");
+        var inputContainer = this.closest(".input-container");
+        inputContainer.classList.remove("border-blue");
+      }
   });
 });
 
@@ -64,6 +83,15 @@ $(document).ready(function() {
         count++;
       } else {
         $(this).hide();
+      }
+      if(searchText==""){ 
+        $(".value").show()
+        $(".nff").hide();
+      }else if(count==0){
+        $(".nff").show();
+        $(".nff").html("Nessun risultato <b>"+searchText+"</b> trovato.");
+      }else{
+        $(".nff").hide();
       }
     });
     // console.log(searchText + ": " + count)
