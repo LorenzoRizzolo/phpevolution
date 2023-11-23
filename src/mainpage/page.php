@@ -1,7 +1,5 @@
 <?php
 
-
+require_once $GLOBALS['src']."pages/index.php";
 
 ?>
-
-qui gestisci il routing delle pagine
