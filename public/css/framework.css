@@ -248,7 +248,7 @@ a{
 }
 .loader {
 border: 4px solid #f3f3f3;  /*Colore del bordo */
-border-top: 4px solid #3498db;  /*Colore del bordo superiore */
+border-top: 4px solid blueviolet;  /*Colore del bordo superiore */
 border-radius: 100%; /* Forma rotonda */
 width: 80px; /* Larghezza dell'elemento */
 height: 80px; /* Altezza dell'elemento */

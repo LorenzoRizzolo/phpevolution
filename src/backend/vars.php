@@ -1,70 +1,28 @@
 <?php
 
-// nome del sito
-$sitename = "";
-
-// pagine admin
-$admin_pages = [ "home", "utenti", "stabilimenti", "cronologia", "logout" ];
-
-
-
-// pagine utenti
-$user_pages = [ 
-    "default"=>["home", "informazioni", "logout"] ,
-    "lotti" => ["nuovo_lotto", "visualizza_lotti", "documento_lotti", "cronologia_lotti"],
-    "turni" => ["nuovo_turno", "miei_turni", "cornologia_turni"]
-];
-// permessi degli utenti
-$permessi_utenti = [
-    "lotti" =>[
-        "inserimento_lotti",
-        "visualizzazione_lotti",
-        "modifiche_lotti",
-        "compilazione_documento_lotti",
-        "visualizza_totale_cronologia_lotti"
-    ],
-    "turni" =>[
-        "compilazione_foglio_del_turno",
-        "visualizzazione_turni_personali",
-        "visualizzazione_totale_cronologia_turni"
-    ]
-]; 
-
-// icone
-$icons = [
+$panel_pages = [
     "home" => '<i class="fa-solid fa-house"></i>',
-    "utenti" => '<i class="fa-solid fa-users"></i>',
-    "logout" => '<i class="fa-solid fa-door-open"></i>',
-    "cronologia" => '<i class="fa-solid fa-clock-rotate-left"></i>',
-    "stabilimenti" => '<i class="fa-solid fa-warehouse"></i>',
-    "informazioni" => '<i class="fa-solid fa-receipt"></i>  '
+    "CV" => '<i class="fa-solid fa-user-tie"></i>',
+    "dati" => '<i class="fa-solid fa-database"></i>',
+    "conoscenze" => '<i class="fa-solid fa-user-ninja"></i>',
+    "scuola" => '<i class="fa-solid fa-user-graduate"></i>',
+    "lingue" => '<i class="fa-solid fa-earth-americas"></i>',
+    "assistenza" => '<i class="fa-solid fa-hand-holding-hand"></i>',
+    "sviluppo_Web" => '<i class="fa-solid fa-laptop-code"></i>'
 ];
 
-
-
-
-if(isset($_POST['chiudi'])){
-    if(count($_GET)>1){
-        redirect("?page=".$_GET['page']);
-    }
-}
-
-function redirect($page){
-    echo "
-   <script> 
-    window.location.href='/$page'; 
-    console.log('reindirizzato')
-   </script> 
-    ";
-}
-
-function redirect_here($args){
-    echo "
-   <script> 
-    window.location.href='/?page=".$_GET['page']."$args'; 
-    console.log('reindirizzato')
-   </script> 
-    ";
-}
+$skills = [
+    "GitHub" => '<i class="fa-brands fa-github"></i>',
+    "PHP" => '<i class="fa-brands fa-php"></i>',
+    "Nginx" => '<i class="fa-solid fa-server"></i>',
+    "JavaScript" => '<i class="fa-brands fa-js"></i>',
+    "C++" => '<i class="fa-solid fa-code"></i>',
+    "C#" => '<i class="fa-solid fa-code"></i>',
+    "svelte" => '<i class="fa-solid fa-code"></i>',
+    "blazor" => '<i class="fa-solid fa-code"></i>',
+    "Discord BOT" => '<i class="fa-brands fa-discord"></i>',
+    "Telegram BOT" => '<i class="fa-brands fa-telegram"></i>',
+    "API" => '<i class="fa-solid fa-globe"></i>'
+];
 
 ?>
