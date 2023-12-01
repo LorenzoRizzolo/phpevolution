@@ -1,7 +1,7 @@
 <?php
 
-require_once "db/stabilimenti.php";
-require_once "db/utenti.php";
-require_once "db/cronologia.php";
+foreach(glob($backend."db/*") as $file){
+    require_once "db/".basename($file);
+}
 
 ?>
