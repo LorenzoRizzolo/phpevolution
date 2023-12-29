@@ -1,7 +1,12 @@
 <?php
 
 require_once "../vendor/autoload.php";
-
+ini_set('session.cookie_lifetime', 31536000);
+// print_r(session_get_cookie_params());
+session_start();
+if(isset($_GET['logout'])){
+    session_unset();
+}
 
 
 // require_once '../vendor/autoload.php'; 
@@ -75,14 +80,6 @@ require 'dbfunctions.php';
 // $time = 36000;
 // ini_set('session.gc_maxlifetime', $time);
 // ini_set('session.use_only_cookies', true);
-ini_set('session.cookie_lifetime', 31536000);
-session_set_cookie_params([ "domain" => $GLOBALS['sitename'] ]);
-session_set_cookie_params([ "secure" => true ]);
-session_set_cookie_params([ "httponly" => false ]);
-// print_r(session_get_cookie_params());
-session_start();
-if(isset($_GET['logout'])){
-    session_unset();
-}
+
 
 ?>
