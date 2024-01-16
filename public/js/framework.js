@@ -98,6 +98,59 @@ $(document).ready(function() {
   });
 });
 
+var num = 4;
+function filterValues() {
+  var searchValues = [];
+  for (var i = 1; i <= num; i++) {
+    var searchbarElement = $('#searchbar' + i);
+    if (searchbarElement.length > 0) {
+        var searchbarValue = searchbarElement.val().toLowerCase();
+        searchValues.push(searchbarValue);
+    } else {
+        searchValues.push("");
+    }
+}
+  $('.value').each(function() {
+      var isVisible = true;
+      for (var i = 1; i <= num; i++) {
+          var datoValue = $(this).find('.dato' + i);
+          var contenuto = $(datoValue).find('.contenuto');
+          var message = $(datoValue).find('.message')
+          var value = datoValue.length > 0 ? datoValue.text().toLowerCase() : "";
+          var value_c = contenuto.length > 0 ? contenuto.text().toLowerCase() : "";
+          var searchText = searchValues[i - 1];
+          if (value.indexOf(searchText) === -1 && searchText !== "") {
+              isVisible = false;
+              break;
+          }
+          if (value_c.indexOf(searchText) !== -1 && searchText !== "") {
+            $(message).show()
+            $(message).html("<br><small class='tgreen'>trovato nel testo</small>");
+            break;
+          }else{
+            $(message).hide()
+          }
+      }
+      if (isVisible) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+  });
+  var count = $('.value:visible').length;
+  if (searchValues.every(value => value === "")) {
+      $(".nff").hide();
+  } else if (count === 0) {
+      $(".nff").show();
+      $(".nff").html("Nessun risultato trovato.");
+  } else {
+      $(".nff").hide();
+  }
+}
+for (var i = 1; i <= num; i++) {
+  $('#searchbar' + i).on('input', filterValues);
+}
+
 // page load
 var loadingDiv = document.getElementById('loading');
     
