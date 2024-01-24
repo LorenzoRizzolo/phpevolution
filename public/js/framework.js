@@ -195,4 +195,46 @@ boxes.forEach(function(box) {
 });
 
 
-  
+function isWebGLSupported() {
+  try {
+    var canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch (e) {
+    return false;
+  }
+}
+
+// Verifica se WebGL è abilitato sul dispositivo
+function isWebGLEnabled() {
+  try {
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    return !!(context && context.getShaderPrecisionFormat);
+  } catch (e) {
+    return false;
+  }
+}
+
+$(document).click(function(event) {
+  if(isMobile()){
+    if(!$(event.target).closest('#menu-open').length){
+      $('.menu.mobile').slideUp();
+      $('.menu.mobile').removeClass('active');
+    }
+  }
+});
+$('#menu-open').on('click', function () {
+  if(!$('.menu.mobile.active').length){
+    $('.menu.mobile').slideDown();
+  }else{
+    $('.menu.mobile').slideUp();
+  }
+  $('.menu.mobile').toggleClass('active')
+});
+
+function isMobile() {
+  return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}

@@ -1,0 +1,130 @@
+:root{
+
+}
+
+body{
+    background-color: #001400;
+}
+
+.par{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    
+    padding: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+.par:first-child h2{
+    margin: 0;
+    font-size: 200%;
+}
+
+.page{
+    height: 100vh;
+    color: white;
+}
+.page .left{/* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    
+    overflow: auto;
+    padding: 20px;    
+}
+.page .right{
+    padding: 20px;
+    overflow: auto;
+}
+.page a{
+    color: white;
+}
+
+.title{
+    font-size: 200%;
+}
+.title small{
+    font-size: 60%;
+}
+
+.menu{
+    margin-top: 20px;
+}
+
+.menu.mobile{
+    display: none;
+}
+.menu > a > div{
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.menu > a > div:hover{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.menu > a > div.selected{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+@media (min-width:780px){
+    .page{
+        display: flex;
+    }
+    .page .left{
+        width: 20vw;
+        padding: 2vh;
+        height: 96vh;
+    }
+    .page .right{
+        width: 80vw;
+        padding: 2vh;
+        height: 96vh;
+    }
+    .mobile{
+        display: none !important;
+    }
+}
+
+@media (max-width:780px){
+    .page .left{
+        position: fixed;
+        min-height: 10vh;
+        backdrop-filter: blur(10px);
+        right: 0;
+        left: 0;
+        top: 0;
+        z-index: 100;
+    }
+    .page .right{
+        padding: 15px;
+        padding-top: 18vh;
+    }
+    .par{
+        margin-bottom: 15px;
+    }
+    .flex-mobile{
+        display: flex;
+        align-items: center;
+    }
+    .flex-mobile #menu-open{
+        font-size: 180%;
+    }
+    .flex-mobile .title{
+        margin-left: 20px;
+    }
+    .pc{
+        display: none !important;
+    }
+}

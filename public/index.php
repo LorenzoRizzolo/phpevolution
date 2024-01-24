@@ -49,6 +49,24 @@ require_once $src.'mainpage/page.php';
 <script src="js/jquery.js"></script>
 <script src="js/script.js"></script>
 <script src="js/framework.js"></script>
+<script src="js/vanta/p5.js"></script>
+<script src="js/vanta/topology.js"></script>
+<script>
+if(isWebGLSupported() && isWebGLEnabled()){
+  VANTA.TOPOLOGY({
+    el: "body",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00
+  })
+}else{
+  console.log("WebGl is not supported on your device :(")
+}
+</script>
 
 </body>
 </html>
