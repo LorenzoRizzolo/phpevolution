@@ -54,7 +54,7 @@ require_once $src.'mainpage/page.php';
 <script>
 if(isWebGLSupported() && isWebGLEnabled()){
   VANTA.TOPOLOGY({
-    el: "body",
+    el: ".page",
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
