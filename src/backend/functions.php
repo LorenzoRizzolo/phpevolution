@@ -99,6 +99,14 @@ function popup($pop){
     }
 }
 
+function redirect($page){
+    echo "
+<script> 
+    window.location.href='/$page';
+</script> 
+    ";
+}
+
 function one_up($var){
     $end = substr($var, 1, strlen($var));
     return strtoupper($var[0]).$end;    
