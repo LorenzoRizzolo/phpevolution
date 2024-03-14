@@ -1,6 +1,6 @@
 <?php
 
-require_once "../vendor/autoload.php";
+require_once __DIR__."/../../vendor/autoload.php";
 ini_set('session.cookie_lifetime', 31536000);
 // print_r(session_get_cookie_params());
 session_start();
@@ -71,9 +71,9 @@ function send_email($email, $object, $message){
 }
 
 // here there are the db functions
-require_once 'vars.php';
-require 'functions.php';
-require 'dbfunctions.php';
+require_once __DIR__.'/vars.php';
+require __DIR__.'/functions.php';
+require __DIR__.'/dbfunctions.php';
 
 
 // session timeout

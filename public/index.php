@@ -10,8 +10,8 @@ $src = "../src/";
 
 $img = "img/";
 
-require_once $backend.'common_file.php';
-require_once $backend.'telegram_bot.php';
+require_once __DIR__.'/../src/backend/common_file.php';
+require_once __DIR__.'/../src/backend/telegram_bot.php';
 ?>
 <html lang="it">
 <head>
@@ -39,7 +39,7 @@ require_once $backend.'telegram_bot.php';
 <body>
 
 <?php
-require_once $src.'mainpage/page.php';
+require_once __DIR__.'/../src/mainpage/page.php';
 ?>
 
 <div id="loading">

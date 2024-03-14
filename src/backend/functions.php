@@ -88,8 +88,7 @@ function see_permessi($str){
 }
 
 function popup($pop){
-    $dir = $_SESSION['role']=="admin" ? $GLOBALS['src']."adminpages/" : $GLOBALS['src']."userpages/";
-    $pop_dir = $dir."popup/".$pop.".php";
+    $pop_dir = __DIR__."/../popup/".$pop.".php";
     if(file_exists($pop_dir)){ 
         echo "<div class='popup'>";
             echo "<div class='popup-content'>";

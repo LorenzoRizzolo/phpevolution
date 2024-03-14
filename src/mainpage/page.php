@@ -1,5 +1,5 @@
 <?php
 
-require_once $GLOBALS['src']."pages/index.php";
+require_once __DIR__."/../pages/index.php";
 
 ?>

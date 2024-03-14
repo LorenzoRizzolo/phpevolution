@@ -1,7 +1,7 @@
 <?php
 
-foreach(glob($backend."db/*") as $file){
-    require_once "db/".basename($file);
+foreach(glob(__DIR__."/db/*") as $file){
+    require_once __DIR__."/db/".basename($file);
 }
 
 ?>

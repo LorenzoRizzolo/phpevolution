@@ -1,5 +1,5 @@
 <?php
-    require_once "upd.php";
+    require_once __DIR__."upd.php";
 
     define("TOKEN", $dati_env->token);
 
